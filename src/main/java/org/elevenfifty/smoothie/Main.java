@@ -15,23 +15,25 @@ public class Main {
 		Configuration config = Configuration.configure("recipes.csv", "ingredients.csv");
 
 		// Recipe Example
-		Recipe r = config.getRecipe("Best Smoothie");
+		Recipe r = config.getRecipe("Green Smoothie");
 
-		logger.info(printPretty("Ingredients:", r.getIngredients()));
-		logger.info(printPretty("Instructions:", r.getInstructions()));
+		 logger.info(r.getName());
+		logger.info(printPretty("Ingredients: ", r.getName(), r.getIngredients()));
+		logger.info(printPretty("Instructions: ", r.getName(), r.getInstructions()));
 		logger.info(r.getCost());
 
 		// Decorator Pattern Example
 		Smoothie s = new Smoothie(config.getIngredient("Orange"));
 		s = new Smoothie(config.getIngredient("Banana"), s);
 
-		logger.info(printPretty("Ingredients:", s.getIngredients()));
-		logger.info(printPretty("Instructions:", s.getInstructions()));
+		logger.info(printPretty("Ingredients: ", "bananrama", s.getIngredients()));
+		logger.info(printPretty("Instructions: ", "bananrama", s.getInstructions()));
 		logger.info(s.getCost());
 	}
 
-	private static String printPretty(String preamble, List<? extends Object> lines) {
+	private static String printPretty(String preamble, String recipeName, List<? extends Object> lines) {
 		StringBuffer b = new StringBuffer(preamble);
+		b.append(recipeName);
 		b.append("\n");
 		for (Object line : lines) {
 			b.append("\t");

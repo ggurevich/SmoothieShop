@@ -1,0 +1,55 @@
+Step1
+
+ Which recipe is loading at the very beginning in the Main.java?
+ 
+	The recipe loaded into the line Recipe r = config.getRecipe("Green Smoothie");.
+	Originally it was best smoothie but changed to green smoothie.
+	
+ What happens when you change the different ingredients inside that recipe and run the app?
+ 
+ 	The ingredients and instructions change based on what is listed
+ 	
+Inside of main there is this command:
+	        Recipe r = context.getBean("bestSmoothie", Recipe.class);
+What happens if you change the name of “bestSmoothie” to a different one found in the recipe.xml?  Is there any change in the output of the app?
+
+
+	The app will list the ingredients of the new recipe and create new directions based on them. The output will change to reflect this.
+	
+	
+ What happens in the output when you add this line
+		        logger.info(r.getName());
+		        above 
+        logger.info(printPretty("Ingredients:", r.getIngredients()));
+        
+        It outputs the name of the recipe above everything.
+        
+ Bonus Question – Can you make the printPretty method accept a String recipeName and make
+			        it print out the recipe name?  
+			        ***HINT – you’d have to change printPretty to accept another parameter of 
+	                                String – if you get stuck ask for help but try first.
+	                                
+	Add String recipeName to parameters of printPretty method.  Added append for recipeName in method and added strings for recipe name in lines for output.
+	
+	
+	
+Step2
+	
+Question – Right click on the recipe.csv file to see what recipes are available and change the 
+       “Best Smoothie” to a different recipe available.  How did this change the output?
+	        Ex. Recipe r = config.getRecipe("Best Smoothie"); 
+	        Ex. Recipe r = config.getRecipe(“Green Smoothie"); 
+
+
+Bonus Question – Can you change the printPretty function to accommodate the name of the 
+	                   recipe?
+
+	both of the above were completed in step1
+	
+	
+step3
+
+
+
+	
+	

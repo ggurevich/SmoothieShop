@@ -102,4 +102,12 @@ ingredient.setQuantity(Integer.valueOf(row.get("Quantity")));
 	
 Step5
 
+Question – Why would we create a class to handle Inventory management?
+
+
+Question – What is the decorator pattern and how is this code implementing it?
+  Make sure to give code examples and what the decorator is adding.
+
+
+
 

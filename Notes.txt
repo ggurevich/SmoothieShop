@@ -104,10 +104,15 @@ Step5
 
 Question – Why would we create a class to handle Inventory management?
 
+	To prevent smoothies from being made after we have run out of ingredients.
 
 Question – What is the decorator pattern and how is this code implementing it?
   Make sure to give code examples and what the decorator is adding.
 
 
+	The configuration file is the decorator.  The code in the load ingredients method adds the cut, peel, wash, and pit properties
+to the ingredients.
+
+step6
 
 

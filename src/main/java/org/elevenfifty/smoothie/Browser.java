@@ -27,7 +27,6 @@ public class Browser {
 		System.out.println();
 		System.out.print("Select a Smoothie Recipe: ");
 
-
 		return config.getRecipe(in.nextInt() - 1);
 	}
 

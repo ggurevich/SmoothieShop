@@ -84,5 +84,22 @@ Explain how the usage of extends and implements works within step3 of our app
 		
 Step4
 
+Question – When the column quantity was added to the ingredients.csv what were the steps that had to occur to utilize this new information?
+
+	Several classes required new code to handle the quantity values.
+
+Question – What does this line of code accomplish?
+System.out.format("%d: %s $%,01.2f%n", i + 1, r.getName(), r.getCost());
+
+	Pulls all information about a recipe and outputs just the name and total cost.
+
+
+Question – What does this line of code accomplish and what software design pattern is it?
+ingredient.setQuantity(Integer.valueOf(row.get("Quantity")));
+
+	Sets the quantity of an ingredient by checking the quantity column.
+	
+	
+Step5
 
 

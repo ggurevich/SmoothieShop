@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 import org.elevenfifty.io.CSVReader;
 import org.elevenfifty.smoothie.beans.Ingredient;
@@ -15,14 +16,14 @@ import org.elevenfifty.smoothie.beans.Produce;
 import org.elevenfifty.smoothie.beans.Recipe;
 
 public class Configuration {
-
+	private final Scanner scan;
 	List<Ingredient> ingredients = new ArrayList<>();
 	List<Recipe> recipes = new ArrayList<>();
 	Map<String, Ingredient> ingredientMap = new HashMap<>();
 	Map<String, Recipe> recipeMap = new HashMap<>();
 
-
 	private Configuration() {
+		scan = new Scanner(System.in);
 	}
 
 	private CSVReader loadCSVFromResource(String filename) {
@@ -51,8 +52,7 @@ public class Configuration {
 	private void loadIngredients(String filename) throws IOException {
 		try (CSVReader csv = loadCSVFromResource(filename)) {
 			csv.readHeaderRow();
-			for (Map<String, String> row = csv.readRowAsMap(); row != null; row = csv
-					.readRowAsMap()) {
+			for (Map<String, String> row = csv.readRowAsMap(); row != null; row = csv.readRowAsMap()) {
 				Type type = Type.valueOf(row.get("Type"));
 				Ingredient ingredient;
 				if (type == Type.FRUIT || type == Type.VEGETABLE) {
@@ -65,9 +65,9 @@ public class Configuration {
 					ingredient = new Ingredient();
 				}
 				ingredient.setName(row.get("Name"));
+				ingredient.setQty(Integer.valueOf(row.get("Quantity")));
 				ingredient.setCost(Double.valueOf(row.get("Cost")));
 				ingredient.setType(Type.valueOf(row.get("Type")));
-				ingredient.setQty(Integer.valueOf(row.get("Quantity")));
 				ingredientMap.put(ingredient.getName(), ingredient);
 				ingredients.add(ingredient);
 			}
@@ -78,34 +78,31 @@ public class Configuration {
 		return ingredients;
 	}
 
-
 	public List<Recipe> listRecipes() {
 		return recipes;
 	}
-
 
 	public Ingredient getIngredient(String name) {
 		return ingredientMap.get(name);
 	}
 
-
 	public Ingredient getIngredient(int index) {
 		return ingredients.get(index);
 	}
-
 
 	public Recipe getRecipe(String name) {
 		return recipeMap.get(name);
 	}
 
-
 	public Recipe getRecipe(int index) {
 		return recipes.get(index);
 	}
 
+	public Scanner getScanner() {
+		return scan;
+	}
 
-	public static Configuration configure(String recipeFilename, String ingredientFilename)
-			throws IOException {
+	public static Configuration configure(String recipeFilename, String ingredientFilename) throws IOException {
 		Configuration config = new Configuration();
 		config.loadIngredients(ingredientFilename);
 		config.loadRecipes(recipeFilename);

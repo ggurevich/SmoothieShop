@@ -9,7 +9,6 @@ public final class PrettyPrinter {
 	private PrettyPrinter() {
 	}
 
-
 	private static String printPretty(String preamble, List<? extends Object> lines) {
 		StringBuffer b = new StringBuffer(preamble);
 		b.append("\n");
@@ -21,15 +20,12 @@ public final class PrettyPrinter {
 		return b.toString();
 	}
 
-
-	public static void print(Item item) {
+	public static void prettyPrint(Item item) {
+		System.out.println();
 		System.out.println(item.getName());
 		System.out.println(printPretty("Ingredients:", item.getIngredients()));
 		System.out.println(printPretty("Instructions:", item.getInstructions()));
-		System.out.println(item.getCost());
+		System.out.format("Cost: $%,01.2f%n", item.getCost());
 	}
-
-
-	
 
 }

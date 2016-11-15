@@ -29,8 +29,8 @@ public class Browser {
 
 	public Recipe readRecipe() {
 		System.out.println();
-		/* System.out.print("Select a Smoothie Recipe: "); */
-		System.out.print("Select a Smoothie Recipe (q to quit): ");
+		System.out.print("Select a Smoothie Recipe: ");
+		/* System.out.print("Select a Smoothie Recipe (q to quit): "); */
 		return config.getRecipe(in.nextInt() - 1);
 	}
 

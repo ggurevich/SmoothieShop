@@ -13,4 +13,6 @@ public interface Item {
 	public List<Ingredient> getIngredients();
 
 	public String getName();
+	
+	public void consumeIngredients();
 }

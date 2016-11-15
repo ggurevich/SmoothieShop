@@ -49,4 +49,12 @@ public class Recipe implements Item {
 		this.ingredients = ingredients;
 	}
 
+	@Override
+	public void consumeIngredients() {
+		for (Ingredient in : getIngredients()) {
+			in.setQty(in.getQty() - 1);
+		}
+	}
+
+
 }

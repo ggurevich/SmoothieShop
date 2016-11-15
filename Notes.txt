@@ -1,0 +1,88 @@
+Step1
+
+Question – Which recipe is loading at the very beginning in the Main.java?
+
+	Best Smoothie
+	
+	
+Question – What happens when you change the different ingredients inside that recipe and run 
+	        the app?
+	        
+	        It changes the ingredients output by best smoothie when you run the app.
+	        
+	        
+Question – Inside of main there is this command:
+	        Recipe r = context.getBean("bestSmoothie", Recipe.class);
+What happens if you change the name of “bestSmoothie” to a different one found in the recipe.xml?  Is there any change in the output of the app?
+	
+	If you change best smoothie to another smoothie from the file it prints out that smoothie.	
+	
+Question – What happens in the output when you add this line
+		        logger.info(r.getName());
+		        above 
+        logger.info(printPretty("Ingredients:", r.getIngredients()));
+        
+        It outputs the name of the smoothie above the instructions.
+
+
+Bonus Question – Can you make the printPretty method accept a String recipeName and make
+			        it print out the recipe name?  
+	
+	Yes. You input String name as a parameter in printPretty method and add a string name in the above objects.
+
+
+Step2
+
+Question – Right click on the recipe.csv file to see what recipes are available and change the 
+       “Best Smoothie” to a different recipe available.  How did this change the output?
+	        Ex. Recipe r = config.getRecipe("Best Smoothie"); 
+	        Ex. Recipe r = config.getRecipe(“Green Smoothie"); 
+
+
+Bonus Question – Can you change the printPretty function to accommodate the name of the 
+	                   recipe?
+
+
+ These are the same questions in step1. They have already been answered.
+
+
+
+Step3
+
+What is the decorator pattern and how is it implemented within this step?
+
+
+	Dictates the format of the output. It is implemented by leaving space between each section.
+	
+How does the refactoring of PrettyPrinter.java and the addition of Browser.java affect the overall app design?
+  Do these two files do anything to enhance the UI of our app?
+
+	Pretty printer makes output easier by implementing multiple items to a single method for output instead of 
+	haveing multiple methods to output multiple types of items.
+	
+	Browser allows the user to see smoothie options and select one.
+
+What is StringBuffer?
+
+	StringBuffer is a String that can be modified easily.
+
+Explain what changed between step2 Item.java and step3 Item.java
+
+	Added a getName method so names could be assigned to the output of smoothies when PrettyPrinter prints them out.
+	
+	Changed the getIngredients method from List<String> to List<Ingredient> because it now implements an array for ingredients 
+	in the Configuration.java file.
+
+
+Explain how the usage of extends and implements works within step3 of our app
+
+	Recipe and Smoothie both implement Item because they are both printed out by the same method in PrettyPrinter despite 
+	Recipe being a premade recipe and Smoothie being a new smoothie that shares aspects of recipe by making its own.
+	
+	CSVReader extends BufferedReader  so it can read strings from other files.
+	
+		
+Step4
+
+
+
